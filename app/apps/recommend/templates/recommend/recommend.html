@@ -1,0 +1,6 @@
+
+<ul>
+{% for choice in collection.choice_set.all %}
+    <li>{{ choice.name }}</li>
+{% endfor %}
+</ul>

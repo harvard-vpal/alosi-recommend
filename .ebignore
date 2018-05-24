@@ -1,0 +1,11 @@
+# local environment
+.env
+.idea/
+
+# non-deploy files
+app/
+docker-compose*
+
+# compiled
+*.pyc
+__pycache__/

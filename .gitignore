@@ -1,0 +1,7 @@
+# local environment
+.env
+.idea/
+
+# compiled
+*.pyc
+__pycache__/

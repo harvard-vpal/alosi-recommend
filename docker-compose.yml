@@ -1,0 +1,26 @@
+# docker-compose file for local development
+
+version: '2'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+  web:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    command: bash -c "sleep 5 && python manage.py runsslserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    links:
+      - postgres
+
+volumes:
+  pgdata:
