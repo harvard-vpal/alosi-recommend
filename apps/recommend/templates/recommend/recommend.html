@@ -1,6 +1,16 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'recommend/css/recommend.css' %}" />
 
-<ul>
-{% for choice in collection.choice_set.all %}
-    <li>{{ choice.name }}</li>
-{% endfor %}
-</ul>
+<div id="recommendations">
+    {% for choice in collection.choice_set.all %}
+    <div class="choice {% if recommended_choice == choice.key %}recommended{% endif %}">
+        <p><strong>
+            {{ choice.name }}
+            {% if recommended_choice == choice.key %}
+                (Recommended for you based on your Learner Profile)
+            {% endif %}
+        </strong></p>
+        <p>{{ choice.description }}</p>
+    </div>
+    {% endfor %}
+</div>
