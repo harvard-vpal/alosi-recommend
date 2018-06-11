@@ -12,5 +12,6 @@ class Collection(models.Model):
 class Choice(models.Model):
     name = fields.CharField(max_length=200)
     key = fields.CharField(max_length=200)
+    description = fields.TextField(default='', blank=True)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
     image_url = fields.URLField(blank=True, null=True)
