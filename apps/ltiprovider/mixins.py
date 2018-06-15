@@ -30,7 +30,9 @@ class LtiLaunchMixin(object):
     def dispatch(self, request, *args, **kwargs):
         validate_lti_request(request)
         get_or_create_lti_user(request)
-        request.session['Lti_session'] = request.POST['oauth_nonce']
+        request.session['lti_session'] = request.POST['oauth_nonce']
+        # put lti user id in session
+        request.session['lti_user_id'] = request.POST['user_id']
         return super(LtiLaunchMixin, self).dispatch(request, *args, **kwargs)
 
 
