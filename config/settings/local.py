@@ -8,6 +8,17 @@ from config.settings.base import *
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'oiut#=u&f8@g@(_@c2$njw7157@_ldxi_!lkw1@wsd9g6+8@zf'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'recommend',
+        'USER': 'postgres',
+        'HOST': 'postgres',
+        'PASSWORD': 'postgres',
+        'PORT': 5432,
+    }
+}
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
