@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'recommend/css/recommend.css' %}" />
 
 <div id="recommendations">
-    {% for choice in collection.choice_set.all %}
-    <div class="choice {% if recommended_choice == choice.key %}recommended{% endif %}">
+    {% for choice in collection.choice_set.all|dictsort:"key" %}
+    <div class="choice {% if recommended_choice == choice %}recommended{% endif %}">
         <p><strong>
             {{ choice.name }}
             {% if recommended_choice == choice.key %}
