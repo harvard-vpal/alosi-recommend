@@ -10,3 +10,16 @@ div.choice {
     border-style: solid;
 }
 
+div.choice table {
+    width: 100%;
+    border: none;
+    padding: 0;
+    cellpadding: 0;
+    cellspacing: 0;
+    border: 0;
+}
+
+div.choice tr {
+    border: none;
+}
+
