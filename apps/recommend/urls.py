@@ -5,6 +5,7 @@ app_name = 'recommend'
 
 urlpatterns = [
     path('<slug:collection_id>/', views.Recommend.as_view(), name='recommend'),
-    path('test/<slug:collection_id>/', views.RecommendTest.as_view(), name='recommend_test'),
+    path('<slug:collection_id>/no-lti/', views.RecommendTest.as_view()),
+    path('<slug:collection_id>/ui-test/', views.RecommendUITest.as_view()),
 ]
 

@@ -6,6 +6,7 @@ from apps.ltiprovider.mixins import LtiLaunchMixin
 from .models import Collection, Choice
 from alosi.engine_api import EngineApi
 from django.conf import settings
+import random
 
 
 class Recommend(LtiLaunchMixin, DetailView):
@@ -28,7 +29,9 @@ class Recommend(LtiLaunchMixin, DetailView):
 
 class RecommendTest(DetailView):
     """
-    Version of Recommend View class without LTI auth (for testing)
+    Version of Recommend View class for testing:
+    No LTI auth
+    Still makes API call
     """
     template_name = 'recommend/recommend.html'
     model = Collection
@@ -38,6 +41,24 @@ class RecommendTest(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return get_recommend_context_data(self, context, **kwargs)
+
+
+class RecommendUITest(DetailView):
+    """
+    Version of Recommend View class for testing
+    No LTI auth
+    No API call
+    """
+    template_name = 'recommend/recommend.html'
+    model = Collection
+    slug_url_kwarg = 'collection_id'
+    slug_field = 'collection_id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        collection = context['collection']
+        context['recommended_choice'] = random.choice(collection.choice_set.all())
+        return context
 
 
 def get_recommend_context_data(view, context, **kwargs):
