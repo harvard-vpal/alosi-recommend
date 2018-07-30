@@ -78,10 +78,8 @@ def get_recommend_context_data(view, context, **kwargs):
             user_id=view.request.session.get('lti_user_id', 'placeholder'),
             tool_consumer_instance_guid=settings.DEFAULT_TOOL_CONSUMER_INSTANCE_GUID
         ),
-        collection=dict(
-            collection_id=collection.collection_id
-        ),
-        sequence='placeholder',  # TODO remove this when engine endpoint ready
+        collection=collection.collection_id,
+        sequence=[],
     )
     r = api.recommend(**data)
     if not r.ok:
