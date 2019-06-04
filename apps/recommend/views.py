@@ -16,8 +16,6 @@ class Recommend(LtiLaunchMixin, DetailView):
 
     template_name = 'recommend/recommend.html'
     model = Collection
-    slug_url_kwarg = 'collection_id'
-    slug_field = 'collection_id'
 
     def post(self, request, *args, **kwargs):
         return self.get(request, *args, **kwargs)
@@ -35,8 +33,6 @@ class RecommendTest(DetailView):
     """
     template_name = 'recommend/recommend.html'
     model = Collection
-    slug_url_kwarg = 'collection_id'
-    slug_field = 'collection_id'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -51,8 +47,6 @@ class RecommendUITest(DetailView):
     """
     template_name = 'recommend/recommend.html'
     model = Collection
-    slug_url_kwarg = 'collection_id'
-    slug_field = 'collection_id'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
