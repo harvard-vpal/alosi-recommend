@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import random
 from django.views.generic import DetailView
+from django.conf import settings
+from alosi.engine_api import EngineApi
 from apps.ltiprovider.mixins import LtiLaunchMixin
 from .models import Collection, Choice
-from alosi.engine_api import EngineApi
-from django.conf import settings
-import random
 
 
 class Recommend(LtiLaunchMixin, DetailView):
