@@ -37,3 +37,23 @@ CORS_ORIGIN_ALLOW_ALL = True
 ENGINE_URL = os.getenv('ENGINE_URL', 'http://engine:8000')
 ENGINE_TOKEN = os.getenv('ENGINE_TOKEN', '5ea0b01ea8ee0fc0b7cc47160cf4c91fe0447779')
 DEFAULT_TOOL_CONSUMER_INSTANCE_GUID = os.getenv('DEFAULT_TOOL_CONSUMER_INSTANCE_GUID', 'openedx.gse.harvard.edu')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'event': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
