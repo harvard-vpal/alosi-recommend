@@ -9,6 +9,9 @@ class Collection(models.Model):
     name = fields.CharField(max_length=200)
     collection_id = fields.CharField(max_length=200, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Choice(models.Model):
     name = fields.CharField(max_length=200)
@@ -16,3 +19,6 @@ class Choice(models.Model):
     description = fields.TextField(default='', blank=True)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
     image_url = fields.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
