@@ -7,14 +7,11 @@
         {% if recommended_choice == choice %}
         <p class="message"><em>Recommended for you based on your Learner Profile:</em></p>
         {% endif %}
-        <table class="choice" cellpadding="0" cellspacing="0" border="0">
+        <table class="choice" >
             <tbody>
-                <tr style="border: none;">
-                    <td rowspan="2" class="icon"><img src="{{ choice.image_url }}" alt="" width="100%" height="auto" /></td>
-                    <td class="title"><strong>{{ choice.name }}</strong></td>
-                </tr>
                 <tr>
-                    <td>{{ choice.description }}</td>
+                    <td class="icon"><img src="{{ choice.image_url }}" alt="{{ choice.name }}" width="100%" height="auto"/></td>
+                    <td>{{ choice.description | safe}}</td>
                 </tr>
             </tbody>
         </table>
